@@ -1,0 +1,24 @@
+﻿@model MyAccountVM
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+       
+        @foreach (var a in Model.Ads)
+        {
+            <div class="bg-light p-4 rounded shadow mb-3">
+                <h5>Listed on @a.DateCreated.ToLongDateString()</h5>
+                <h5>Phone Number: @a.Number</h5>
+                <h3>Details:</h3>
+                <p>
+                    @a.Details
+                </p>
+                <form method="post" action="/home/deletead">
+                    <input type="hidden" name="id" value="@a.ListerId">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        }
+       
+    </div>
+
+</div>
